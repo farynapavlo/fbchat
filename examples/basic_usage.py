@@ -1,12 +1,14 @@
-import fbchat
+# -*- coding: UTF-8 -*-
 
-# Log the user in
-session = fbchat.Session.login("<email>", "<password>")
+from fbchat import Client
+from fbchat.models import *
 
-print("Own id: {}".format(session.user.id))
+client = Client("faryna747pavlo@gmail.com", "killer4321")
 
-# Send a message to yourself
-session.user.send_text("Hi me!")
 
-# Log the user out
-session.logout()
+print('Own id: {}'.format(client.uid))
+
+client.sendMessage("myr", client.uid, ThreadType.USER)
+
+
+client.logout()
